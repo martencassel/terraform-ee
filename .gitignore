@@ -2,3 +2,5 @@ secret.tfvars
 .terraform/
 docs
 *.tfstate*
+./files/docker_subscription.lic
+files

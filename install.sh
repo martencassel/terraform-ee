@@ -5,8 +5,12 @@ export EE_VERSION=$2;
 export UCP_VERSION=$3;
 export DTR_VERSION=$4;
 export MANAGER_COUNT=$5;
-export LINUX_WORKER_COUNT=$6;
-export WINDOWS_WORKER_COUNT=$7;
+export DTR_COUNT=$6;
+export LINUX_WORKER_COUNT=$7;
+export WINDOWS_WORKER_COUNT=$8;
+
+# A license file must exists. If empty then it will be ignored when installing.
+touch ./files/docker_subscription.lic
 
 echo "OS_VERSION: $OS_VERSION";
 echo "EE_VERSION: $EE_VERSION";
@@ -25,12 +29,12 @@ terraform plan -var-file="secret.tfvars"  \
     -var "linux_worker_count=$LINUX_WORKER_ACOUNT" \
     -var "windows_worker_count=$WINDOWS_WORKER_COUNT";
 
-terraform destroy -var-file="secret.tfvars"  -auto-approve \
-    -var "os_version=$OS_VERSION" -var "ee_version=$EE_VERSION" \
-    -var "ucp_version=$UCP_VERSION" -var "dtr_version=$DTR_VERSION" \
-    -var "manager_count=$MANAGER_COUNT" \
-    -var "linux_worker_count=$LINUX_WORKER_ACOUNT" \
-    -var "windows_worker_count=$WINDOWS_WORKER_COUNT";
+#terraform destroy -var-file="secret.tfvars"  -auto-approve \
+#    -var "os_version=$OS_VERSION" -var "ee_version=$EE_VERSION" \
+#    -var "ucp_version=$UCP_VERSION" -var "dtr_version=$DTR_VERSION" \
+#    -var "manager_count=$MANAGER_COUNT" \
+#    -var "linux_worker_count=$LINUX_WORKER_ACOUNT" \
+#    -var "windows_worker_count=$WINDOWS_WORKER_COUNT";
 
 
 terraform apply -var-file="secret.tfvars"  -auto-approve \
