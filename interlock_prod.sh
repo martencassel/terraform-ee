@@ -14,3 +14,5 @@ WINDOWS_WORKER_COUNT=0;
     $DTR_COUNT \
     $LINUX_WORKER_COUNT \
     $WINDOWS_WORKER_COUNT;
+
+# https://docs.docker.com/ee/ucp/interlock/deploy/production/

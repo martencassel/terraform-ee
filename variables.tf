@@ -11,6 +11,7 @@ variable "rhsm_username" {}
 variable "rhsm_password" {}
 
 variable "manager_count" {}
+variable "dtr_count" {}
 variable "linux_worker_count" {}
 
 variable "ami_os_linux_list" {
@@ -61,6 +62,7 @@ variable "ee_version_packages" {
 }
 
 variable "ucp_version" {}
+variable "dtr_version" {}
 
 variable "admin_username" {}
 variable "admin_password" {}
