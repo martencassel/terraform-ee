@@ -45,6 +45,8 @@ The following versions are currently available from a Docker EE package reposito
 
 
 # Getting Started
+
+* Prereqs: AWS Access, Red Hat Subscription for RHEL, A Docker EE subscription (store.docker.com)
  
 ```
 
