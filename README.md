@@ -24,7 +24,7 @@ variables = {
 python install.py
 ```
 
-This matrice describe the possible configuration options:
+This matrix describe the possible configuration options:
 
 
 | OS Distribution        | Enterprise Engine           | UCP  | DTR |
