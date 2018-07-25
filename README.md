@@ -56,6 +56,19 @@ The following versions are currently available from a Docker EE package reposito
 4. Run terraform apply with python install.py
 
 ```
+# Features
+
+* Installs a license file in the files folder.
+* Can provision and join ucp managers, windows workers and linux workers.
+* Can provision one DTR instance.
+* After cluster setup (on macos) the self-signed CA Root ceritificate is installed to the local keychain.
+
+# Issues
+* DTR HA. Currently cannot join multiple DTR replicas automatically.
+
+# Todo
+
+* Support full HA setup with load balancer and provision custom TLS certificates.
 
 # Example 1.
 
