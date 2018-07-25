@@ -36,7 +36,7 @@ python install.py
 
 ```
 
-# Example
+# Example 1.
 
 The example below will provision 4 node cluster consisting of 1 Manager 3 Worker nodes.
 
@@ -56,3 +56,18 @@ variables = {
     'windows_worker_count': 3,
 }
 ```
+
+# Example 2.
+
+
+| OS Distribution  | Enterprise Engine | UCP | DTR
+| ------------- | -------------------------- | -------------
+| RHEL 7.5  | 17.06.(1-2), 17.06.2-*(3-14)  | * | *
+| RHEL 7.4  | 17.06.(1-2), 17.06.2-*(3-14) | * | *
+| RHEL 7.3  | 17.06.(1-2), 17.06.2-*(3-14) | * | *
+| Windows 1709 | * | - | -
+| Windows 1803 | * | - | -
+| Windows 2016 base | * | - | -
+
+
+
