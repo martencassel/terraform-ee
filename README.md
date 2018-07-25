@@ -1,10 +1,27 @@
 # Background
 
-The idea is that using a set of variables you can define your desired
-Docker EE environment. This is done using terraform only solution 
-that generates a set of bash and powershell scripts and run them to setup all machines.
+You define your desired Docker EE cluster environment topology (nr of managers, workers) along 
+with the desired software versions of different components (Host OS, Engine Release, UCP Release, DTR Release),
+using a set of variables.
 
-You define your AWS credentials, Docker EE subscription file (optional) and other information in the secret.tfvars file.
+
+```
+variables = {
+    'os_version': "RHEL-7.5",
+    'ee_version': "17.06.2-ee-14",
+    'ucp_version': "3.0.2",
+    'dtr_version': "2.5.3",
+    'manager_count': 1,
+    'dtr_count': 0,
+    'linux_worker_count': 0,
+    "windows_os_version": "2016_base",
+    'windows_worker_count': 3,
+}
+```
+
+```
+python install.py
+```
 
 # Getting Started
  
