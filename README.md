@@ -74,9 +74,9 @@ The following versions are currently available from a Docker EE package reposito
 * Provision Windows 10 CE environment
 
 | Windows Release        | Docker CE           | 
-| ------------- |:-------------:| -----:| -----:|
-| Windows 10 Pro, 1709   | 
-| Windows 10 Pro, 1803     |  
+| ------------- |:-------------:|  
+| Windows 10 Pro, 1709   |  x | 
+| Windows 10 Pro, 1803     |  y |
  
 
 # Example 1.
