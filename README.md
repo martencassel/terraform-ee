@@ -106,6 +106,8 @@ variables = {
 Say for some reason you'd like to setup a Docker EE cluster with Engine 17.06.2-ee-11 with a compatible UCP version.
 
 * You provision a ucp cluster topology: 1 manager, 1 linux worker + 1 windows worker.
+   1. You edit the variables of your choice in install.py
+   2. You run terraform: python install.py
 * You configure the UCP Layer 7 routing solution.
 * You deploy services and update them.
 * When you are done, you throw your cluster away.
