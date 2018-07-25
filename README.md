@@ -94,7 +94,7 @@ variables = {
 ```
 
 # Example 2.
-Say for some reason you'd like to setup a Docker EE cluster with Engine 17.06.2-ee-12 with a compatible UCP version.
+Say for some reason you'd like to setup a Docker EE cluster with Engine 17.06.2-ee-11 with a compatible UCP version.
 
 * You provision a ucp cluster topology: 1 manager, 1 linux worker + 1 windows worker.
 * You configure the UCP Layer 7 routing solution.
