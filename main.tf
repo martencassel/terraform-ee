@@ -157,6 +157,66 @@ data "template_file" "install_dtr" {
   }
 }
 
+data "template_file" "win_ee_install" {
+  template = "${file("./scripts/win_ee_install.tpl")}"
+
+  vars {
+    ucp_version = "${var.ucp_version}"
+    ee_version  = "${var.ee_version}"
+  }
+}
+
+data "template_file" "join_ucp" {
+  template = "${file("./scripts/join_ucp.tpl")}"
+
+  vars {
+    ucp_version = "${var.ucp_version}"
+    ee_version  = "${var.ee_version}"
+    manager_ip  = "${aws_instance.ucp_manager.0.private_ip}"
+    manager_dns = "${aws_instance.ucp_manager.0.public_dns}"
+  }
+}
+
+resource "aws_instance" "windows_worker" {
+  connection {
+    type     = "winrm"
+    user     = "Administrator"
+    password = "${var.windows_admin_password}"
+    timeout  = "10m"
+  }
+
+  instance_type = "t2.large"
+  ami           = "${lookup(var.ami_os_windows_list, var.windows_os_version)}"
+
+  count    = "${var.windows_worker_count}"
+  key_name = "terraform"
+
+  user_data = <<EOF
+<script>
+  winrm quickconfig -q & winrm set winrm/config @{MaxTimeoutms="1800000"} & winrm set winrm/config/service @{AllowUnencrypted="true"} & winrm set winrm/config/service/auth @{Basic="true"}
+</script>
+<powershell>
+  netsh advfirewall firewall add rule name="WinRM in" protocol=TCP dir=in profile=any localport=5985 remoteip=any localip=any action=allow
+  # Set Administrator password
+  $admin = [adsi]("WinNT://./administrator, user")
+  $admin.psbase.invoke("SetPassword", "${var.windows_admin_password}")
+  c:\win_ee_install.ps1
+</powershell>
+EOF
+
+  key_name = "terraform"
+
+  provisioner "file" {
+    content     = "${data.template_file.win_ee_install.rendered}"
+    destination = "c:\\win_ee_install.ps1"
+  }
+
+  provisioner "file" {
+    content     = "${data.template_file.join_ucp.rendered}"
+    destination = "c:\\join_ucp.ps1"
+  }
+}
+
 resource "aws_instance" "dtr_replica" {
   depends_on = ["aws_instance.ucp_manager"]
 

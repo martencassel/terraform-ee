@@ -1,0 +1,88 @@
+workflow setup {
+    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force;
+    Install-Module DockerMsftProvider -Force;
+    Install-Package -Name docker -ProviderName DockerMsftProvider -Force -RequiredVersion 17.06.2-ee-14;
+    Restart-Computer -Force;
+    docker image pull docker/ucp-agent-win:3.0.2;
+    docker image pull docker/ucp-dsinfo-win:3.0.2;
+    mkdir C:\ProgramData\docker\daemoncerts;
+    docker container run --rm -v C:\ProgramData\docker\daemoncerts:C:\certs docker/ucp-agent-win:3.0.2 generate-certs;
+    Stop-Service docker;
+    dockerd --unregister-service;
+    dockerd -H npipe:// -H 0.0.0.0:2376 --tlsverify --tlscacert=C:\ProgramData\docker\daemoncerts\ca.pem --tlscert=C:\ProgramData\docker\daemoncerts\cert.pem --tlskey=C:\ProgramData\docker\daemoncerts\key.pem --register-service;
+    Start-Service docker;
+    netsh advfirewall firewall add rule name="docker_local" dir=in action=allow protocol=TCP localport=2376
+    netsh advfirewall firewall add rule name="docker_proxy" dir=in action=allow protocol=TCP localport=12376
+    netsh advfirewall firewall add rule name="docker_2376_in" dir=in action=allow protocol=TCP localport=2376 | Out-Null;
+    netsh advfirewall firewall add rule name="docker_12376_in" dir=in action=allow protocol=TCP localport=12376 | Out-Null;
+    netsh advfirewall firewall add rule name="docker_2377_in" dir=in action=allow protocol=TCP localport=2377 | Out-Null;
+    netsh advfirewall firewall add rule name="docker_7946_in" dir=in action=allow protocol=TCP localport=7946 | Out-Null;
+    netsh advfirewall firewall add rule name="docker_7946_out" dir=out action=allow protocol=TCP localport=7946 | Out-Null;
+    netsh advfirewall firewall add rule name="docker_4789_udp_in" dir=in action=allow protocol=UDP localport=4789 | Out-Null;
+    netsh advfirewall firewall add rule name="docker_4789_udp_out" dir=out action=allow protocol=UDP localport=4789 | Out-Null;
+    netsh advfirewall firewall add rule name="docker_7946_udp_in" dir=in action=allow protocol=UDP localport=7946 | Out-Null;
+    netsh advfirewall firewall add rule name="docker_7946_udp_out" dir=out action=allow protocol=UDP localport=7946 | Out-Null;
+  
+    $Username="admin";
+    $Password="P@ssw0rd";
+    $Body = "{`"username`":`"$($Username)`", `"password`":`"$($Password)`"}";
+
+    
+  add-type @"
+      using System.Net;
+      using System.Security.Cryptography.X509Certificates;
+      public class TrustAllCertsPolicy : ICertificatePolicy {
+          public bool CheckValidationResult(
+              ServicePoint srvPoint, X509Certificate certificate,
+              WebRequest request, int certificateProblem) {
+              return true;
+          }
+      }
+  "@
+  
+    [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    $AUTH_TOKEN=((Invoke-WebRequest -UseBasicParsing -Body $Body -Uri "https://$MANAGER_PUBLIC_DNS/auth/login" -Method POST).Content) | ConvertFrom-Json | select auth_token -ExpandProperty auth_token;
+    $WORKER_TOKEN=((Invoke-WebRequest -UseBasicParsing -Headers @{"Authorization"="Bearer $AUTH_TOKEN"} -Uri "https://$MANAGER_PUBLIC_DNS/swarm").Content) | ConvertFrom-Json | Select JoinTokens -ExpandProperty JoinTokens | Select Worker -ExpandProperty Worker;
+  
+  }
+  
+  workflow setup {
+
+  Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force;
+  Install-Module DockerMsftProvider -Force;
+  Install-Package -Name docker -ProviderName DockerMsftProvider -Force -RequiredVersion 17.06.2-ee-14;
+  Restart-Computer -Force -Wait;
+
+  $s = InlineScript {
+      Start-Service docker;
+      Sleep 20;
+      docker image pull docker/ucp-agent-win:3.0.2;
+      docker image pull docker/ucp-dsinfo-win:3.0.2;
+  }
+
+  $s
+}
+
+  setup
+
+
+    docker image pull docker/ucp-agent-win:3.0.2;
+  docker image pull docker/ucp-dsinfo-win:3.0.2;
+  mkdir C:\ProgramData\docker\daemoncerts;
+  docker container run --rm -v C:\ProgramData\docker\daemoncerts:C:\certs docker/ucp-agent-win:3.0.2 generate-cert;
+  Stop-Service docker;
+  dockerd --unregister-service;
+  dockerd -H npipe:// -H 0.0.0.0:2376 --tlsverify --tlscacert=C:\ProgramData\docker\daemoncerts\ca.pem --tlscert=C:\ProgramData\docker\daemoncerts\cert.pem --tlskey=C:\ProgramData\docker\daemoncerts\key.pem --register-service;
+  Start-Service docker;
+  netsh advfirewall firewall add rule name="docker_local" dir=in action=allow protocol=TCP localport=2376
+  netsh advfirewall firewall add rule name="docker_proxy" dir=in action=allow protocol=TCP localport=12376
+  netsh advfirewall firewall add rule name="docker_2376_in" dir=in action=allow protocol=TCP localport=2376
+  netsh advfirewall firewall add rule name="docker_12376_in" dir=in action=allow protocol=TCP localport=12376 
+  netsh advfirewall firewall add rule name="docker_2377_in" dir=in action=allow protocol=TCP localport=2377 
+  netsh advfirewall firewall add rule name="docker_7946_in" dir=in action=allow protocol=TCP localport=7946 
+  netsh advfirewall firewall add rule name="docker_7946_out" dir=out action=allow protocol=TCP localport=7946  
+  netsh advfirewall firewall add rule name="docker_4789_udp_in" dir=in action=allow protocol=UDP localport=4789  
+  netsh advfirewall firewall add rule name="docker_4789_udp_out" dir=out action=allow protocol=UDP localport=4789 
+  netsh advfirewall firewall add rule name="docker_7946_udp_in" dir=in action=allow protocol=UDP localport=7946 
+  netsh advfirewall firewall add rule name="docker_7946_udp_out" dir=out action=allow protocol=UDP localport=7946  

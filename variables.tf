@@ -13,6 +13,7 @@ variable "rhsm_password" {}
 variable "manager_count" {}
 variable "dtr_count" {}
 variable "linux_worker_count" {}
+variable "windows_worker_count" {}
 
 variable "ami_os_linux_list" {
   type = "map"
@@ -24,13 +25,16 @@ variable "ami_os_linux_list" {
   }
 }
 
+variable "windows_os_version" {}
+
 variable "ami_os_windows_list" {
   type = "map"
 
   default = {
-    "1709" = "ami-55fbc8be"
-    "1803" = "ami-eff1c204"
-    "2016" = "ami-b8f5c653"
+    "1709"                 = "ami-55fbc8be"
+    "1803"                 = "ami-eff1c204"
+    "2016_base_containers" = "ami-b8f5c653"
+    "2016_base"            = "ami-63f5c688"
   }
 }
 
@@ -66,3 +70,5 @@ variable "dtr_version" {}
 
 variable "admin_username" {}
 variable "admin_password" {}
+variable "windows_admin_username" {}
+variable "windows_admin_password" {}
