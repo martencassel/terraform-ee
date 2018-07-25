@@ -1,6 +1,6 @@
 | OS Distribution        | Enterprise Engine           | UCP  | DTR |
 | ------------- |:-------------:| -----:| -----:|
-| RHEL 7.3      | See footnotes  | Any | Any |
+| RHEL 7.3      | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>  | Any | Any |
 | RHEL 7.4      | See footnotes      |   Any | Any |
 | RHEL 7.5 | See footnotes      |    Any | Any |
 | Windows Server 2016 | See footnotes      |    Any | Any |
