@@ -56,6 +56,31 @@ The following versions are currently available from a Docker EE package reposito
 4. Run terraform apply with python install.py
 
 ```
+
+# secret.tfvars.example
+
+```
+region = "eu-central-1"
+
+access_key = "aws access key"
+
+secret_key = "aws secret key"
+
+rhsm_username = "rhsm username"
+
+rhsm_password = "rhsm password"
+
+docker_ee_url = "https://storebits.docker.com/ee/rhel/sub-<subscription-id-folder>"
+
+admin_username = "ucp admin username"
+
+admin_password = "ucp admin password"
+
+windows_admin_username = "windows username"
+
+windows_admin_password = "windows password"
+
+```
 # Features
 * Can provision and join ucp managers, windows ucp workers and linux ucp workers.
 * Can provision one DTR instance.
