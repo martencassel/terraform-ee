@@ -58,6 +58,7 @@ The following versions are currently available from a Docker EE package reposito
 ```
 # Features
 
+* Ansible free
 * Installs a license file in the files folder.
 * Can provision and join ucp managers, windows workers and linux workers.
 * Can provision one DTR instance.
