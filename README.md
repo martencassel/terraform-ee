@@ -78,7 +78,8 @@ The example below will provision 4 node cluster consisting of 1 Manager 3 Worker
 The manager will be hosted on a RHEL 7.5 machine with the Docker EE Engine 17.06.2-ee-14 release.
 The worker nodes will be hosted on Windows Server 2016 with the same EE engine version as the linux one.
 
-```
+``` (install.py)
+
 variables = {
     'os_version': "RHEL-7.5",
     'ee_version': "17.06.2-ee-14",
