@@ -59,15 +59,14 @@ variables = {
 
 # Example 2.
 
+| First Header  | Second Header | Third Header | Third Header | 
+| ------------- | ------------- | ------------ | ------------ | 
+| Content Cell  | Content Cell  | Content Cell | Content Cell |       
+| Content Cell  | Content Cell  | Content Cell | Content Cell | 
 
-| OS Distribution  | Enterprise Engine | UCP | DTR
-| ------------- | -------------------------- | -------------
-| RHEL 7.5  | 17.06.(1-2), 17.06.2-*(3-14)  | * | *
-| RHEL 7.4  | 17.06.(1-2), 17.06.2-*(3-14) | * | *
-| RHEL 7.3  | 17.06.(1-2), 17.06.2-*(3-14) | * | *
-| Windows 1709 | * | - | -
-| Windows 1803 | * | - | -
-| Windows 2016 base | * | - | -
-
-
+| OS  | Enterprise Engine | UCP | DTR |
+| ------------- | ------------- | 
+| RHEL 7.5 | *  | * | 
+| RHEL 7.4 | *  | * |  
+| RHEL 7.3 | *  | * | 
 
