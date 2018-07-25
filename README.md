@@ -9,6 +9,7 @@ installation.
 ```
 
 1. Install terraform
+2. Create a folder named files in the project directory.
 2. Edit secret.tfvars as the example file, to set AWS credentials.
 2. Run terraform init
 3. Edit the variables in install.py
