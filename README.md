@@ -57,11 +57,11 @@ The following versions are currently available from a Docker EE package reposito
 
 ```
 # Features
-
-* Installs a license file in the files folder.
 * Can provision and join ucp managers, windows ucp workers and linux ucp workers.
 * Can provision one DTR instance.
 * After cluster setup (on macos) the self-signed CA Root ceritificate is installed to the local keychain.
+* Installs a license file in the files folder.
+* Uses bash, powershell, EE API and the EE CLI and AWS.
 
 # Issues
 * DTR HA. Currently cannot join multiple DTR replicas automatically.
