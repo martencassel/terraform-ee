@@ -23,8 +23,7 @@ The idea is that using a set of variables you can define your desired
 Docker EE environment. This is done using terraform only solution 
 that generates a set of bash and powershell scripts and run them to setup all machines.
 
-The secret.tfvars define your personal credentials for AWS
-and the URl to your Docker EE repository you get from store.docker.com, EE account details, VM credentials.
+You define your AWS credentials, Docker EE subscription file (optional) and other information in the secret.tfvars file.
 
 # Example
 
