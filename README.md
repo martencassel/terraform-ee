@@ -1,10 +1,12 @@
+# Background
 
-This project will provision a Docker EE environment on AWS, and lets you choose
-what versions of components you want, both Engine Version and OS versions plus
-the number of different roles like Workers, Managers or DTR.
+The idea is that using a set of variables you can define your desired
+Docker EE environment. This is done using terraform only solution 
+that generates a set of bash and powershell scripts and run them to setup all machines.
 
-This project uses only terraform to generate the required scripts to automate the
-installation.  
+You define your AWS credentials, Docker EE subscription file (optional) and other information in the secret.tfvars file.
+
+# Getting Started
  
 ```
 
@@ -16,14 +18,6 @@ installation.
 4. Run terraform apply with python install.py
 
 ```
-
-# Background
-
-The idea is that using a set of variables you can define your desired
-Docker EE environment. This is done using terraform only solution 
-that generates a set of bash and powershell scripts and run them to setup all machines.
-
-You define your AWS credentials, Docker EE subscription file (optional) and other information in the secret.tfvars file.
 
 # Example
 
