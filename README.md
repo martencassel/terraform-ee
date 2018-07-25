@@ -69,6 +69,7 @@ The following versions are currently available from a Docker EE package reposito
 # Todo
 
 * Support full HA setup with load balancer and provision custom TLS certificates.
+* All Docker EE versions and RPM paths are hardcoded into the variables.tf file. It would be better given a Subscription URL to retrieve all possible releases automaticlly using HTTP.
 
 # Example 1.
 
