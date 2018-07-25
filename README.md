@@ -1,11 +1,11 @@
 | OS Distribution        | Enterprise Engine           | UCP  | DTR |
 | ------------- |:-------------:| -----:| -----:|
 | RHEL 7.3      | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>  | Any available | Any available |
-| RHEL 7.4      | See footnotes      |   Any available | Any available |
-| RHEL 7.5 | See footnotes      |    Any available | Any available |
-| Windows Server 2016 | See footnotes      |    Any available | Any available |
-| Windows Server 1709 | See footnotes      |    Any available | Any available |
-| Windows Server 1803 | See footnotes      |    Any available | Any available |
+| RHEL 7.4      | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>      |   Any available | Any available |
+| RHEL 7.5 | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>      |    Any available | Any available |
+| Windows Server 2016 | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>     |    Any available | Any available |
+| Windows Server 1709 | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>      |    Any available | Any available |
+| Windows Server 1803 | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>      |    Any available | Any available |
 
 
 # Background
