@@ -7,6 +7,8 @@
 | Windows Server 1709 | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>      |    Any available | Any available |
 | Windows Server 1803 | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>      |    Any available | Any available |
 
+<sup>1</sup> 17.06.1-ee-1, 17.06.1-ee-2
+<sup>2</sup> 17.06.2-ee-[3-14]
 
 # Background
 
