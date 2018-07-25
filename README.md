@@ -1,3 +1,13 @@
+| OS Distribution        | Enterprise Engine           | UCP  | DTR |
+| ------------- |:-------------:| -----:| -----:|
+| RHEL 7.3      | See footnotes  | Any | Any |
+| RHEL 7.4      | See footnotes      |   Any | Any |
+| RHEL 7.5 | See footnotes      |    Any | Any |
+| Windows Server 2016 | See footnotes      |    Any | Any |
+| Windows Server 1709 | See footnotes      |    Any | Any |
+| Windows Server 1803 | See footnotes      |    Any | Any |
+
+
 # Background
 
 You define your desired Docker EE cluster environment topology (nr of managers, workers) along 
