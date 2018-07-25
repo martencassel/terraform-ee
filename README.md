@@ -99,3 +99,14 @@ Say for some reason you'd like to setup a Docker EE cluster with Engine 17.06.2-
 * You provision a ucp cluster topology: 1 manager, 1 linux worker + 1 windows worker.
 * You configure the UCP Layer 7 routing solution.
 * You deploy services and update them.
+
+
+# Release notes links
+
+https://success.docker.com/article/compatibility-matrix
+
+https://docs.docker.com/ee/engine/release-notes/
+
+https://docs.docker.com/ee/ucp/release-notes/
+
+https://docs.docker.com/ee/dtr/release-notes/
