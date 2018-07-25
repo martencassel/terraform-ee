@@ -5,6 +5,8 @@ You define your desired Docker EE cluster environment topology (nr of managers, 
 with the desired software versions of different components (Host OS, Engine Release, UCP Release, DTR Release),
 using a set of variables.
 
+Here is an example:
+
 
 ```
 variables = {
