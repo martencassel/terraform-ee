@@ -1,14 +1,3 @@
-| OS Distribution        | Enterprise Engine           | UCP  | DTR |
-| ------------- |:-------------:| -----:| -----:|
-| RHEL 7.3      | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>  | Any available | Any available |
-| RHEL 7.4      | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>      |   Any available | Any available |
-| RHEL 7.5 | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>      |    Any available | Any available |
-| Windows Server 2016 | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>     |    Any available | Any available |
-| Windows Server 1709 | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>      |    Any available | Any available |
-| Windows Server 1803 | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>      |    Any available | Any available |
-
-<sup>1</sup> 17.06.1-ee-1, 17.06.1-ee-2
-<sup>2</sup> 17.06.2-ee-[3-14]
 
 # Background
 
@@ -71,14 +60,14 @@ variables = {
 
 # Example 2.
 
-| First Header  | Second Header | Third Header | Third Header | 
-| ------------- | ------------- | ------------ | ------------ | 
-| Content Cell  | Content Cell  | Content Cell | Content Cell |       
-| Content Cell  | Content Cell  | Content Cell | Content Cell | 
+| OS Distribution        | Enterprise Engine           | UCP  | DTR |
+| ------------- |:-------------:| -----:| -----:|
+| RHEL 7.3      | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>  | Any available | Any available |
+| RHEL 7.4      | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>      |   Any available | Any available |
+| RHEL 7.5 | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>      |    Any available | Any available |
+| Windows Server 2016 | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>     |    Any available | Any available |
+| Windows Server 1709 | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>      |    Any available | Any available |
+| Windows Server 1803 | 17.06.1<sup>1</sup> 17.06.2<sup>2</sup>      |    Any available | Any available |
 
-| OS  | Enterprise Engine | UCP | DTR |
-| ------------- | ------------- | 
-| RHEL 7.5 | *  | * | 
-| RHEL 7.4 | *  | * |  
-| RHEL 7.3 | *  | * | 
-
+<sup>1</sup> 17.06.1-ee-1, 17.06.1-ee-2
+<sup>2</sup> 17.06.2-ee-[3-14]
